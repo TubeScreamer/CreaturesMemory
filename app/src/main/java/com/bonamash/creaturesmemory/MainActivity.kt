@@ -3,7 +3,12 @@ package com.bonamash.creaturesmemory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
+/**
+ * GitHub: https://github.com/TubeScreamer/CreaturesMemory
+ */
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,5 +24,8 @@ class MainActivity : AppCompatActivity() {
         tvNumMoves = findViewById(R.id.tvNumMoves)
         tvNumPairs = findViewById(R.id.tvNumPairs)
 
+        rvBoard.adapter = MemoryBoardAdapter(this, 8)
+        rvBoard.setHasFixedSize(true)
+        rvBoard.layoutManager = GridLayoutManager(this, 2)
     }
 }
